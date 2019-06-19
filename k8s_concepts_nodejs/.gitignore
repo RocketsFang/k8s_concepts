@@ -1,0 +1,7 @@
+.jsdtscope
+.jshintrc
+.sublime
+.sublime-project
+.tern-project
+com.eclipsesource*
+org.eclipse.wst.jsdt*
