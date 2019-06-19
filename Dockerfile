@@ -1,3 +1,3 @@
-FROM ubuntu:1604
+FROM ubuntu:16.04
 RUN apt-get install nodejs
 RUN apt-get install npm
