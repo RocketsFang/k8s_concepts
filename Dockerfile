@@ -6,5 +6,5 @@ RUN rm /var/lib/dpkg/lock \
     && dpkg --configure -a
 
 RUN apt-get update \
-    && apt-get install nodejs \
-    && apt-get install npm
+    && apt-get install -y nodejs \
+    && apt-get install -y npm
