@@ -7,9 +7,9 @@ spec:
   - image: rocketsfang/k8s_concepts
     name: pods
     imagePullPolicy: Always
+    ports:
+    - containerPort: 8888
+      hostPort: 8888
   imagePullSecrets:
   - name: docker-io-account
-  ports:
-  - containerPort: 8888
-    hostPort: 8888
     
