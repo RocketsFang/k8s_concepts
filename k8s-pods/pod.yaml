@@ -5,3 +5,5 @@ metadata:
   spec:
   containers:
   - image: rocketsfang/k8s_concepts
+  name: pods
+  imagePlullPolicy: Always
