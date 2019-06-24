@@ -14,6 +14,8 @@ RUN mkdir -p /opt/k8s_concepts_nodejs/server
 
 ADD ./k8s_concepts_nodejs/main/server.js /opt/k8s_concepts_nodejs/server
 
+WORKDIR /opt/k8s_concepts_nodejs
+
 EXPOSE 8888
 
-CMD ["nodejs", "/opt/k8s_concepts_nodejs/server/server.js"]
+CMD ["nodejs", "server/server.js"]
