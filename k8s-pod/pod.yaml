@@ -9,4 +9,7 @@ spec:
     imagePullPolicy: Always
   imagePullSecrets:
   - name: docker-io-account
+  ports:
+  - containerPort: 8888
+    hostPort: 8888
     
