@@ -4,7 +4,7 @@ metadata:
   name: demo-pod
 spec:
   containers:
-  - image: https://cloud.docker.com/repository/docker/rocketsfang/k8s_concepts
+  - image: rocketsfang/k8s_concepts
     name: pods
     imagePullPolicy: Always
   imagePullSecrets:
