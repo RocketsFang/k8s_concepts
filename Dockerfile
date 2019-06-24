@@ -16,4 +16,4 @@ ADD ./k8s_concepts_nodejs/main/server.js /opt/k8s_concepts_nodejs/server
 
 EXPOSE 8888
 
-CMD ["node", "/opt/k8s_concepts_nodejs/server/server.js"]
+CMD ["nodejs", "/opt/k8s_concepts_nodejs/server/server.js"]
