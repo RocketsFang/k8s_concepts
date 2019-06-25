@@ -10,7 +10,9 @@ RUN apt-get update \
     && apt-get install -y npm \
     && apt-get install -y curl
 
-RUN mkdir -p /opt/k8s_concepts_nodejs/server
+RUN mkdir -p /opt/k8s_concepts_nodejs/server \
+    && mkdir /opt/datastore \
+    && touch /opt/datastore/nodejsfile
 
 ADD ./k8s_concepts_nodejs/main/server.js /opt/k8s_concepts_nodejs/server
 
