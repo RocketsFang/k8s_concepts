@@ -14,7 +14,7 @@ RUN apt-get update \
 
 RUN mkdir -p /opt/k8s_concepts_nodejs/server \
     && mkdir /opt/datastore \
-    && touch ${NODEJS_DB_FILE}
+    && touch ${NODEJS_DB_FILE} \
     && echo "### this is the nodejs app file database" > ${NODEJS_DB_FILE}
 
 ADD ./k8s_concepts_nodejs/main/server.js /opt/k8s_concepts_nodejs/server
