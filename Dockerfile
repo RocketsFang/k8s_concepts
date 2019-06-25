@@ -18,4 +18,4 @@ WORKDIR /opt/k8s_concepts_nodejs
 
 EXPOSE 8888
 
-CMD ["nodejs", "server/server.js"]
+ENTRYPOINT ["nodejs", "server/server.js"]
