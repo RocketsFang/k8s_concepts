@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: livenessprobe-readinessprobe
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-livenessprobe-demo
+  namespace: livenessprobe-readinessprobe
+spec:
+  containers:
+  - image: rocketsfang/k8s_concepts
+    name: pod-container-1
+    imagePullPolicy: Always
+    ports:
+    - containerPort: 8888
+      hostPort: 8888
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 8888
+      initialDelaySeconds: 15
+      timeoutSeconds: 1
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 8889
+      initialDelaySeconds: 20
+      timeoutSeconds: 1
+    

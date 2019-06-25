@@ -14,7 +14,7 @@ spec:
     name: pod-container-2
     imagePullPolicy: Always
     command: ["/bin/bash"]
-    args: ["-c", "tail -f $(NODEJS_DB_FILE)"]
+    args: ["-c", "tail -f ${NODEJS_DB_FILE}"]
       
   imagePullSecrets:
   - name: docker-io-account

@@ -1,18 +1,24 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: pending
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: pod-pending-demo
+  namespace: pending
 spec:
   containers:
   - image: rocketsfang/k8s_concepts/non-exist
     name: pod-container-1
-    imagePullPolicy: IfNotPresent
+    imagePullPolicy: Always
     ports:
     - containerPort: 8888
       hostPort: 8888
   - image: rocketsfang/k8s_concepts
     name: pod-container-2
-    imagePullPolicy: IfNotPresent
+    imagePullPolicy: Always
     ports:
     - containerPort: 8888
       hostPort: 8889    
