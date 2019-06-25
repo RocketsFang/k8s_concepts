@@ -2,6 +2,8 @@
 
 FROM ubuntu:16.04
 
+ENV NODEJS_DB_FILE /opt/datastore/nodejsfile
+
 RUN rm /var/lib/dpkg/lock \
     && dpkg --configure -a
 
@@ -12,7 +14,8 @@ RUN apt-get update \
 
 RUN mkdir -p /opt/k8s_concepts_nodejs/server \
     && mkdir /opt/datastore \
-    && touch /opt/datastore/nodejsfile
+    && touch ${NODEJS_DB_FILE}
+    && echo "### this is the nodejs app file database" > ${NODEJS_DB_FILE}
 
 ADD ./k8s_concepts_nodejs/main/server.js /opt/k8s_concepts_nodejs/server
 
