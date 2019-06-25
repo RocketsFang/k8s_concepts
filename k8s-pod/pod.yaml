@@ -1,15 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: demo-pod
+  name: pod-demo
 spec:
   containers:
   - image: rocketsfang/k8s_concepts
-    name: pods
-    imagePullPolicy: Always
+    name: pod-container
+    imagePullPolicy: IfNotPresent
     ports:
     - containerPort: 8888
       hostPort: 8888
   imagePullSecrets:
   - name: docker-io-account
-    
