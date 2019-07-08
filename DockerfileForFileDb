@@ -1,0 +1,19 @@
+###  simulate db(using file) to learn k8s concept
+
+FROM ubuntu:16.04
+
+ARG DB_WORKDIR=/opt/datastore
+ENV DB_FILE /opt/datastore/dbfile
+
+RUN rm /var/lib/dpkg/lock \
+    && dpkg --configure -a
+
+RUN apt-get update \
+    && apt-get install -y curl
+
+RUN mkdir /opt/datastore \
+    && touch ${DB_FILE}
+
+WORKDIR ${DB_WORKDIR}
+
+ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh"]
