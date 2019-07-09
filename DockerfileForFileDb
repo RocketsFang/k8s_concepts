@@ -18,4 +18,6 @@ ADD ./k8s_concepts_db/generatedata.sh  ${DB_WORKDIR}/
 
 WORKDIR ${DB_WORKDIR}
 
+RUN chmod +x generatedata.sh
+
 ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh ${DB_FILE}"]
