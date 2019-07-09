@@ -20,4 +20,5 @@ WORKDIR ${DB_WORKDIR}
 
 RUN chmod +x generatedata.sh
 
-ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh ${DB_FILE}"]
+##ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh ${DB_FILE}"]
+ENTRYPOINT ["generatedata.sh", "${DB_FILE}"]
