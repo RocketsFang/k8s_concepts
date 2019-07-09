@@ -23,6 +23,8 @@ ADD ./k8s_concepts_db/generatedata.sh  ${DB_WORKDIR}/
 
 WORKDIR ${DB_WORKDIR}
 
+RUN chmod +x generatedata.sh
+
 EXPOSE 8888
 
 ##ENTRYPOINT ["nodejs", "server/server.js"]
