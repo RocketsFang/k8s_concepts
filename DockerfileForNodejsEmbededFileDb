@@ -26,4 +26,4 @@ WORKDIR ${DB_WORKDIR}
 EXPOSE 8888
 
 ##ENTRYPOINT ["nodejs", "server/server.js"]
-ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh", "${DB_FILE}", "yes"]
+ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh ${DB_FILE} yes"]
