@@ -30,4 +30,4 @@ EXPOSE 8888
 
 
 ##ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh ${DB_FILE} yes"]
-ENTRYPOINT ["./generatedata.sh", "${DB_FILE}", "yes"]
+ENTRYPOINT ["./generatedata.sh", "$DB_FILE", "yes"]
