@@ -3,7 +3,8 @@
 FROM ubuntu:16.04
 
 ARG DB_WORKDIR=/opt/datastore
-ENV DB_FILE /opt/datastore/dbfile
+ARG DB_FILE=/opt/datastore/dbfile
+ENV DB_FILE ${DB_FILE}
 
 RUN rm /var/lib/dpkg/lock \
     && dpkg --configure -a
