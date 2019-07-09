@@ -13,10 +13,7 @@ RUN apt-get update \
     && apt-get install -y npm \
     && apt-get install -y curl
 
-RUN mkdir -p ${NODEJS_WORKDIR}/server \
-    && mkdir /opt/datastore \
-    && touch ${DB_FILE} \
-    && echo '### this is the nodejs app file database' > ${DB_FILE}
+RUN mkdir -p ${NODEJS_WORKDIR}/server
 
 ADD ./k8s_concepts_nodejs/main/server.js ${NODEJS_WORKDIR}/server
 

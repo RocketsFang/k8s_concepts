@@ -11,9 +11,11 @@ RUN rm /var/lib/dpkg/lock \
 RUN apt-get update \
     && apt-get install -y curl
 
-RUN mkdir ${DB_WORKDIR} \
-    && touch ${DB_FILE}
+RUN mkdir -p ${DB_WORKDIR} \
+    && touch ${DB_WORKDIR}\${DB_FILE}
 
 WORKDIR ${DB_WORKDIR}
 
-ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh"]
+ADD ./generatedata.sh ${DB_WORKDIR}/
+
+ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh", "${DB_FILE}"]
