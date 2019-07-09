@@ -6,9 +6,12 @@ var http=require("http");
 
 http.createServer(function (request, response){
 	
+	var data = fs.readFileSync('./test.txt', 'utf8');
+	console.log(data);
+	
 	response.writeHead(200, {'Content-Type':'text/plain'});
 	
-	response.end('k8s learning, success!');
+	response.end(data);
 	
 }).listen(8888);
 

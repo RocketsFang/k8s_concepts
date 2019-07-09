@@ -12,10 +12,10 @@ RUN apt-get update \
     && apt-get install -y curl
 
 RUN mkdir -p ${DB_WORKDIR} \
-    && touch ${DB_WORKDIR}\${DB_FILE}
+    && touch ${DB_FILE}
+
+ADD ./k8s_concepts_db/generatedata.sh  ${DB_WORKDIR}/
 
 WORKDIR ${DB_WORKDIR}
-
-ADD ./generatedata.sh ${DB_WORKDIR}/
 
 ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh", "${DB_FILE}"]

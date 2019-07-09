@@ -1,0 +1,29 @@
+###  package a nodejs application to learn k8s concept
+
+FROM ubuntu:16.04
+
+ARG DB_WORKDIR=/opt/datastore
+ARG NODEJS_WORKDIR=/opt/k8s_concepts_nodejs
+ENV DB_FILE /opt/datastore/dbfile
+
+RUN rm /var/lib/dpkg/lock \
+    && dpkg --configure -a
+
+RUN apt-get update \
+    && apt-get install -y nodejs \
+    && apt-get install -y npm \
+    && apt-get install -y curl
+    
+RUN mkdir -p ${DB_WORKDIR} \
+    && touch ${DB_FILE} \
+    && mkdir -p ${NODEJS_WORKDIR}/server
+
+ADD ./k8s_concepts_nodejs/main/server.js ${NODEJS_WORKDIR}/server
+ADD ./k8s_concepts_db/generatedata.sh  ${DB_WORKDIR}/
+
+WORKDIR ${DB_WORKDIR}
+
+EXPOSE 8888
+
+##ENTRYPOINT ["nodejs", "server/server.js"]
+ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh", "${DB_FILE}", "yes"]
