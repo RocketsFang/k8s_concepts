@@ -11,7 +11,7 @@ RUN rm /var/lib/dpkg/lock \
 RUN apt-get update \
     && apt-get install -y curl
 
-RUN mkdir /opt/datastore \
+RUN mkdir ${DB_WORKDIR} \
     && touch ${DB_FILE}
 
 WORKDIR ${DB_WORKDIR}
