@@ -8,6 +8,8 @@ kind: ReplicationController
 metadata:
   name: rc-nodejsapp
   namespace: rc
+##labels:
+##  rc: nodejsapp
 spec:
   replicas: 3
   selector:
