@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: deploy
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-nodejsapp
+  namespace: deploy
+  labels:
+    app: nodejsapp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nodejsapp
+  template:
+    metadata:
+      labels:
+        app: nodejsapp
+    spec:
+      containers:
+      - name: nodejsapp
+        image: rocketsfang/k8s_concepts:embeded_db_latest
+        ports:
+        - containerPort: 8888

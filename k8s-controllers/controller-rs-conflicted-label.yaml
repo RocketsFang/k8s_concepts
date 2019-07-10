@@ -49,3 +49,16 @@ spec:
 #        image: rocketsfang/k8s_concepts:embeded_db_latest
 #        ports:
 #        - containerPort: 8888
+---
+---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: service-nodejsapp
+#  namespace: rs-conflict-label
+#spec:
+#  ports:
+#  - port: 8888
+#    protocol: TCP
+#  selector:
+#    app: nodejsapp
