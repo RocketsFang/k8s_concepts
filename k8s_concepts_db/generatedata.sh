@@ -6,6 +6,7 @@ need_run_nodejs=$2
 echo "Need nodejs: " $need_run_nodejs
 
 sigterm_handler() {
+  echo "container ----->[`hostname`] will be terminated."
   echo "Capture termination signal, and will backup the data file."
   mv $data_file "$data_file"_$(date +"%F_%T")
   exit $?
