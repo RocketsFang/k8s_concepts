@@ -1,0 +1,30 @@
+#### kubectl label pod xxxx app=ndejsapp-debug --overwrite
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: rc-isolate
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: rc-nodejsapp
+## create new controller to take charge of the pods created previously
+##  name: rc-nodejsapp_new
+  namespace: rc-isolate
+spec:
+  replicas: 2
+  selector:
+    app: nodejsapp
+  template:
+    metadata:
+      name: nodejsapp
+      labels:
+        app: ndejsapp
+    spec:
+      containers:
+      - name: nodejsapp
+        imagePullPolicy: Always
+        image: rocketsfang/k8s_concept:embeded_db_latest
+        ports:
+        - containerPort: 8888
