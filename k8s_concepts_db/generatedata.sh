@@ -28,9 +28,9 @@ fi
 ##trap 'kill ${!}; sigterm_handler' SIGTERM
 trap sigterm_handler SIGTERM
 
-echo >>>>> hostname <<<<<<
+echo '>>>>> hostname <<<<<<'
 hostname
-echo >>>>> ip address <<<<<<
+echo '>>>>> ip address <<<<<<'
 ifconfig
 
 generate_data
