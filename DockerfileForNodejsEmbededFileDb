@@ -29,5 +29,5 @@ RUN chmod +x generatedata.sh
 EXPOSE 8888
 
 
-ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh ${DB_FILE} yes"]
-##ENTRYPOINT ["./generatedata.sh", "$DB_FILE", "yes"]
+##ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh ${DB_FILE} yes"]
+ENTRYPOINT ["./generatedata.sh", "/opt/datastore/dbfile", "yes"]
