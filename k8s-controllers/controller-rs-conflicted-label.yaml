@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: rs-bare-pods
+  name: rs-conflict-label
 ---
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: rs-nodejsapp
-  namespace: rs-bare-pods
+  namespace: rs-conflict-label
   labels:
     app: nodejsapp
 spec:
@@ -27,17 +27,25 @@ spec:
         - containerPort: 8888
         
 ---
-#apiVersion: v1
-#kind: Pod
+#apiVersion: apps/v1
+#kind: ReplicaSet
 #metadata:
-#  name: bare-pod-1
-#  namespace: rs-bare-pods
-# add the labels
+#  name: rs-nodejsapp-conflict-label
+#  namespace: rs-conflict-label
 #  labels:
 #    app: nodejsapp
 #spec:
-#  containers:
-#  - name: nodejsapp
-#    image: rocketsfang/k8s_concepts:embeded_db_latest
-#    ports:
-#    - containerPort: 8888
+#  replicas: 3
+#  selector:
+#    matchLabels:
+#      app: nodejsapp
+#  template:
+#    metadata:
+#      labels:
+#        app: nodejsapp
+#    spec:
+#      containers:
+#      - name: nodejsapp
+#        image: rocketsfang/k8s_concepts:embeded_db_latest
+#        ports:
+#        - containerPort: 8888
