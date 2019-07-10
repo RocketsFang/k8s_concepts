@@ -10,7 +10,7 @@ RUN rm /var/lib/dpkg/lock \
     && dpkg --configure -a
 
 RUN apt-get update \
-    && apt-get install -y curl
+    && apt-get install -y curl vim net-tools telnet iputils-ping 
 
 RUN mkdir -p ${DB_WORKDIR} \
     && touch ${DB_FILE}

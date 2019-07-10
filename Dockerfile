@@ -2,3 +2,5 @@
 
 FROM vish/stress
 
+RUN apt-get install -y vim
+
