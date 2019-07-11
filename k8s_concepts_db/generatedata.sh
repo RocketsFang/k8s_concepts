@@ -23,9 +23,9 @@ sigterm_handler() {
 
 generate_data(){
   COUNTER=1
-  echo "### this is the nodejs app file database" > $data_file
+  echo "### this is the nodejs app file database" 1> $data_file
   while [ true ]; do
-    echo "This is the " $COUNTER "th line." >> $data_file
+    echo "This is the " $COUNTER "th line." 1>> $data_file
     let COUNTER=$COUNTER+1
     sleep 5
   done
