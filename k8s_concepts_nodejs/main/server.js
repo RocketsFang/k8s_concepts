@@ -8,7 +8,7 @@ var fs = require("fs");
 
 http.createServer(function (request, response){
 	
-	var data = fs.readFileSync('/opt/datastore/dbfile', 'utf8');
+	var data = fs.readFileSync('/opt/datastore/data/dbfile', 'utf8');
 	console.log(data);
 	
 	response.writeHead(200, {'Content-Type':'text/plain'});
