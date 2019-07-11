@@ -69,7 +69,7 @@ spec:
       storageClassName: "nodejsapp-storage-class"
       resources:
         requests:
-          storage: 1Gi
+          storage: 100Mi
       
       
       
