@@ -56,9 +56,9 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8888
-      volumeMounts:
-      - name: nodejsapp-volume-claim
-        mountPath: /opt/datastore/data/
+        volumeMounts:
+        - name: nodejsapp-volume-claim
+          mountPath: /opt/datastore/data/
   volumeClaimTemplates:
   - metadata:
       name: nodejsapp-volume-claim
