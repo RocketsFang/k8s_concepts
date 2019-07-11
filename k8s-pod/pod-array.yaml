@@ -11,6 +11,10 @@ metadata:
   labels:
     app: nodejsapp
 spec:
+#  Always, OnFailure, Never. Default to Always
+  restartPolicy: Never
+  shareProcessNamespace: false
+  terminationGracePeriodSeconds: 20
   containers:
   - image: rocketsfang/k8s_concepts:nodejs_latest
     name: pod-nodejs

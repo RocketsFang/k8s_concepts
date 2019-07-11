@@ -19,3 +19,5 @@ spec:
     - containerPort: 8888
 # if specified, must match the container ports, mostly it's not set
 #   hostPort: 8888
+
+# more demos in po-array.yaml
