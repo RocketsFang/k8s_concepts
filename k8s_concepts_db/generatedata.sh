@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo 'The container >>>>>`hostname`<<<<<< is starting' 
+echo '>>>>> ip address <<<<<<'
+ifconfig
+
 data_file=$1
 echo "Data file is: " $data_file
 need_run_nodejs=$2
@@ -28,10 +32,5 @@ fi
 
 ##trap 'kill ${!}; sigterm_handler' SIGTERM
 trap sigterm_handler SIGTERM
-
-echo '>>>>> hostname <<<<<<'
-hostname
-echo '>>>>> ip address <<<<<<'
-ifconfig
 
 generate_data
