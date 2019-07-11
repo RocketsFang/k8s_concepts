@@ -13,6 +13,12 @@ sigterm_handler() {
   echo "container ----->[`hostname`] will be terminated."
   echo "Capture termination signal, and will backup the data file."
   mv $data_file "$data_file"_$(date +"%F_%T")
+  COUNTER=1
+  while [ true ]; do
+    echo "Time used to terminate: " $COUNTER " seconds..."
+    let COUNTER=$COUNTER+1
+    sleep 1
+  done
   exit $?
 }
 
