@@ -10,7 +10,7 @@ metadata:
   namespace: pod
 spec:
   containers:
-  - image: rocketsfang/k8s_concepts
+  - image: rocketsfang/k8s_concepts:embeded_db_latest
     name: pod-container
     imagePullPolicy: IfNotPresent
     ports:
