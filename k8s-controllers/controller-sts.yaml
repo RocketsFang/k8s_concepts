@@ -13,7 +13,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: nodejsapp-storage-class
   hostPath:
     path: /home/docker/statefulset/nodejsapp-0
@@ -29,7 +29,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: nodejsapp-storage-class
   hostPath:
     path: /home/docker/statefulset/nodejsapp-1
@@ -45,7 +45,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: nodejsapp-storage-class
   hostPath:
     path: /home/docker/statefulset/nodejsapp-2
