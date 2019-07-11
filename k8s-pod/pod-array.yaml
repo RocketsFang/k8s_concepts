@@ -23,21 +23,20 @@ spec:
     - containerPort: 8888
 #      hostPort: 8888
     volumeMounts:
-      name: pod-volume
+    - name: pod-volume
       mountPath: /opt/datastore/data
   - image: rocketsfang/k8s_concepts:db_latest
     name: pod-db
     imagePullPolicy: Always
     volumeMounts:
-      name: pod-volume
+    - name: pod-volume
       mountPath: /opt/datastore/data
   volumes:
   - name: pod-volume
-    emptyDir: {}
-    medium: Memory
-    sizeLimit: 2Mi
+    emptyDir:
+      medium: Memory
+      sizeLimit: 2Mi
 # or use the host machine
 #  - name: pod-volume
 #    type: DirectoryOrCreate
 #    path: /home/docker/hostpath/
-    
