@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "The container -------$(hostname)------- is starting"
-echo "-------ip address -------"
-ifconfig
+echo "The container[$(hostname)] is starting ..."
+echo "Container[$(hostname)] host alias info ..."
+cat /etc/hosts
 
 data_file=$1
 echo "Data file is: " $data_file
@@ -10,8 +10,7 @@ need_run_nodejs=$2
 echo "Need nodejs: " $need_run_nodejs
 
 sigterm_handler() {
-  echo "container -----$(hostname) will be terminated."
-  echo "Capture termination signal, and will backup the data file."
+  echo "Capture termination signal, container[$(hostname)] will be terminated ..."
   mv $data_file "$data_file"_$(date +"%F_%T")
   COUNTER=1
   while [ true ]; do
