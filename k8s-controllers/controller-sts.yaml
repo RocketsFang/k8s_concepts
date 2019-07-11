@@ -57,7 +57,7 @@ spec:
         - containerPort: 8888
       volumeMounts:
       - name: nodejsapp-volume-claim
-        mountPath: /opt/datastore/
+        mountPath: /opt/datastore/data/
   volumeClaimTemplates:
   - metadata:
       name: nodejsapp-volume-claim

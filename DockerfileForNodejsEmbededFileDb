@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 
 ARG DB_WORKDIR=/opt/datastore
 ARG NODEJS_WORKDIR=/opt/k8s_concepts_nodejs
-ARG DB_FILE=/opt/datastore/dbfile
+ARG DB_FILE=/opt/datastore/data/dbfile
 ENV DB_FILE ${DB_FILE}
 
 RUN rm /var/lib/dpkg/lock \
@@ -30,4 +30,4 @@ EXPOSE 8888
 
 
 ##ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh ${DB_FILE} yes"]
-ENTRYPOINT ["./generatedata.sh", "/opt/datastore/dbfile", "yes"]
+ENTRYPOINT ["./generatedata.sh", "/opt/datastore/data/dbfile", "yes"]

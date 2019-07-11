@@ -3,7 +3,7 @@
 FROM ubuntu:16.04
 
 ARG NODEJS_WORKDIR=/opt/k8s_concepts_nodejs
-ENV DB_FILE /opt/datastore/dbfile
+ENV DB_FILE /opt/datastore/data/dbfile
 
 RUN rm /var/lib/dpkg/lock \
     && dpkg --configure -a

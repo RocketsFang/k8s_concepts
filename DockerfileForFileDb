@@ -3,7 +3,7 @@
 FROM ubuntu:16.04
 
 ARG DB_WORKDIR=/opt/datastore
-ARG DB_FILE=/opt/datastore/dbfile
+ARG DB_FILE=/opt/datastore/data/dbfile
 ENV DB_FILE ${DB_FILE}
 
 RUN rm /var/lib/dpkg/lock \
@@ -22,4 +22,4 @@ WORKDIR ${DB_WORKDIR}
 RUN chmod +x generatedata.sh
 
 ##ENTRYPOINT ["/bin/bash", "-c", "generatedata.sh ${DB_FILE}"]
-ENTRYPOINT ["./generatedata.sh", "/opt/datastore/dbfile"]
+ENTRYPOINT ["./generatedata.sh", "/opt/datastore/data/dbfile"]
