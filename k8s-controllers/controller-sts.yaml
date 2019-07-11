@@ -53,6 +53,7 @@ spec:
       containers:
       - name: nodejsapp
         image: rocketsfang/k8s_concepts:embeded_db_latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8888
       volumeMounts:
