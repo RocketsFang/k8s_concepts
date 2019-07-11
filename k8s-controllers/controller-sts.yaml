@@ -6,17 +6,49 @@ metadata:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nodejsapp-volume
+  name: nodejsapp-volume-0
 spec:
   capacity:
-    storage: 1Gi
+    storage: 100Mi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   persistentVolumeReclaimPolicy: Recycle
   storageClassName: nodejsapp-storage-class
   hostPath:
-    path: /home/docker/nodejsapp
+    path: /home/docker/statefulset/nodejsapp-0
+    type: Directory
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nodejsapp-volume-1
+spec:
+  capacity:
+    storage: 100Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: nodejsapp-storage-class
+  hostPath:
+    path: /home/docker/statefulset/nodejsapp-1
+    type: Directory
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nodejsapp-volume-2
+spec:
+  capacity:
+    storage: 100Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: nodejsapp-storage-class
+  hostPath:
+    path: /home/docker/statefulset/nodejsapp-2
     type: Directory
 ---
 apiVersion: v1
@@ -65,13 +97,13 @@ spec:
       name: nodejsapp-volume-claim
       namespace: sts
     spec:
-      accessModes: [ "ReadWriteMany" ]
+      accessModes: [ "ReadWriteOnce" ]
       storageClassName: "nodejsapp-storage-class"
       resources:
         requests:
           storage: 100Mi
-      
-      
-      
-      
-      
+
+    
+    
+    
+    
