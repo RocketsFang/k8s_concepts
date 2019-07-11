@@ -38,6 +38,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: sts-nodejsapp
+  namespace: sts
 spec:
   selector:
     matchLabels:
@@ -62,6 +63,7 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: nodejsapp-volume-claim
+      namespace: sts
     spec:
       accessModes: [ "ReadWriteMany" ]
       storageClassName: "nodejsapp-storage-class"
