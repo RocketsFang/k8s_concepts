@@ -12,8 +12,7 @@ metadata:
     app: nodejsapp
 spec:
   hostAliases:
-  - hostnames:
-      - {k8s, concepts, learning}
+  - hostnames: [ k8s, concepts, learning ]
     ip: 66.66.66.66
   nodeName: minikube
   hostname: k8s_concepts_learning
