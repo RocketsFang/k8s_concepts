@@ -49,7 +49,7 @@ spec:
       labels:
         app: nodejsapp
     spec:
-      terminationGracePeriodSecond: 10
+      terminationGracePeriodSeconds: 10
       containers:
       - name: nodejsapp
         image: rocketsfang/k8s_concepts:embeded_db_latest
