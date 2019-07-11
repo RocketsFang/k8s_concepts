@@ -15,7 +15,7 @@ sigterm_handler() {
   mv $data_file "$data_file"_$(date +"%F_%T")
   COUNTER=1
   while [ true ]; do
-    echo "Time used to terminate: " $COUNTER " seconds..."
+    echo "Time used to terminate - $(hostname): " $COUNTER " seconds..."
     let COUNTER=$COUNTER+1
     sleep 1
   done
