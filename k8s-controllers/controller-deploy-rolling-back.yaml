@@ -14,7 +14,7 @@ spec:
   replicas: 3
   selector:
     matchExpressions:
-      - {key: app, operator: In, values:[nodejsapp]}
+      - {key: app, operator: In, values: [nodejsapp]}
   strategy:
 # for demo rolling update strategy
 #    type: Recreate
