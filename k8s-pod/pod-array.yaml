@@ -19,7 +19,8 @@ spec:
   nodeSelector:
     purpose: k8s_concepts_learning
 #  Always, OnFailure, Never. Default to Always
-  restartPolicy: Never
+# co-worked with 'container.lifecycle.postStart action'
+  restartPolicy: Always
   shareProcessNamespace: false
   terminationGracePeriodSeconds: 20
   containers:
@@ -31,6 +32,11 @@ spec:
 #        add: ["CHOWN", "SYS_TIME"]
 #        drop: ["ALL"]
     imagePullPolicy: Always
+# co-worked with restartPolicy
+#    lifecycle:
+#      postStart:
+#        exec:
+#          command: "/opt/datastore/container/no-existed.sh"
     ports:
     - containerPort: 8888
 #      hostPort: 8888

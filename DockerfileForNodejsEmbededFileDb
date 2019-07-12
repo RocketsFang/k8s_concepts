@@ -28,7 +28,7 @@ ADD ./k8s_concepts_db/container/preStop.sh   ${DB_WORKDIR}/container/preStop.sh
 WORKDIR ${DB_WORKDIR}
 
 RUN chmod +x generatedata.sh
-RUN chmod +x container/preStart.sh
+RUN chmod +x container/postStart.sh
 RUN chmod +x container/preStop.sh
 
 EXPOSE 8888
