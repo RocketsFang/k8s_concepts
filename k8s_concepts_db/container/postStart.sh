@@ -2,7 +2,7 @@
 
 # need pod to configure with volume
 logFile=/opt/datastore/data/postStart.log
-echo "The container[$(hostname)] postStart 'ExecAction' is executing ..." 1> $logFile
+echo "The container[$(hostname)] postStart 'ExecAction' is starting ..." 1> $logFile
 
 sigterm_handler() {
   echo "Capture termination signal for preStart 'ExecAction', postStart shell will be terminated ..." 1>> $logFile
@@ -19,10 +19,11 @@ sigterm_handler() {
 trap sigterm_handler SIGTERM
 
 duration=20
+WORK_COUNTER=1
 while [ true ]; do
-    echo "Simulating works in postStart action duration[$duration] seconds: " $COUNTER " seconds..." 1>> $logFile
-    let COUNTER=$COUNTER+1
-    if [ $duration -le $COUNTER ]; then
+    echo "Simulating works in postStart action duration[$duration] seconds: " $WORK_COUNTER " seconds..." 1>> $logFile
+    let WORK_COUNTER=$WORK_COUNTER+1
+    if [ $duration -le $WORK_COUNTER ]; then
       "The works in postStart action is done ..." 1>> $logFile
       break;
     fi
