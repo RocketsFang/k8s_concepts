@@ -16,6 +16,7 @@ spec:
     ports:
     - containerPort: 8888
       hostPort: 8888
+# add container hook to lead container keep on restarting
     lifecycle:
       postStart:
         exec:
@@ -26,6 +27,7 @@ spec:
     ports:
     - containerPort: 8888
       hostPort: 8889
+# add container hook to lead container keep on restarting
     lifecycle:
       postStart:
         exec:
