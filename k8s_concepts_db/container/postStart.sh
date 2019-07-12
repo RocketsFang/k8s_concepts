@@ -20,7 +20,7 @@ duration=20
 while [ true ]; do
     echo "Simulating works in postStart action duration[$duration] seconds: " $COUNTER " seconds..."
     let COUNTER=$COUNTER+1
-    if [ $duration le $COUNTER ]: then
+    if [ $duration -le $COUNTER ]; then
       "The works in postStart action is done ..."
       break;
     fi
