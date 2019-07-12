@@ -6,7 +6,7 @@ metadata:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-array-demo
+  name: pod-array
   namespace: pod-array
   labels:
     app: nodejsapp
