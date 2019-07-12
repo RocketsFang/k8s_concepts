@@ -10,25 +10,19 @@ metadata:
   namespace: pod-running
 spec:
   containers:
-  - image: rocketsfang/k8s_concepts:embeded_db_latest
+  - image: rocketsfang/k8s_concepts:db_latest
     name: pod-container-1
     imagePullPolicy: Always
     ports:
     - containerPort: 8888
       hostPort: 8888
-# add container hook to lead container keep on restarting
-    lifecycle:
-      postStart:
-        exec:
-          command: ["/opt/datastore/container/no-existed.sh"]
+# overwrite the entrypoint to set process can be completed
+# while the other container is running
+    command: ["/bin/bash"]
+    args: ["-c", "echo 'This is pod lifecycle running demo.'"]
   - image: rocketsfang/k8s_concepts:embeded_db_latest
     name: pod-container-2
     imagePullPolicy: Always
     ports:
     - containerPort: 8888
       hostPort: 8889
-# add container hook to lead container keep on restarting
-    lifecycle:
-      postStart:
-        exec:
-          command: ["/opt/datastore/container/no-existed.sh"]
