@@ -9,6 +9,7 @@ metadata:
   name: pod-running
   namespace: pod-running
 spec:
+  restartPolicy: Never
   containers:
   - image: rocketsfang/k8s_concepts:db_latest
     name: pod-container-1
