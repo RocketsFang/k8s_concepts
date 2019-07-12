@@ -16,15 +16,20 @@ RUN apt-get update \
     && apt-get install -y curl vim net-tools telnet iputils-ping
     
 RUN mkdir -p ${DB_WORKDIR}/data/ \
+    && ${DB_WORKDIR}/container/ \
     && touch ${DB_FILE} \
     && mkdir -p ${NODEJS_WORKDIR}/server
 
 ADD ./k8s_concepts_nodejs/main/server.js ${NODEJS_WORKDIR}/server
 ADD ./k8s_concepts_db/generatedata.sh  ${DB_WORKDIR}/
+ADD ./k8s_concepts_db/container/preStart.sh  ${DB_WORKDIR}/container/preStart.sh
+ADD ./k8s_concepts_db/container/preStop.sh   ${DB_WORKDIR}/container/preStop.sh
 
 WORKDIR ${DB_WORKDIR}
 
 RUN chmod +x generatedata.sh
+RUN chmod +x container/preStart.sh
+RUN chmod +x container/preStop.sh
 
 EXPOSE 8888
 
