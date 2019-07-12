@@ -20,7 +20,7 @@ spec:
     lifecycle:
       postStart:
         exec:
-          command: "/opt/datastore/container/no-existed.sh"
+          command: ["/opt/datastore/container/no-existed.sh"]
   - image: rocketsfang/k8s_concepts:embeded_db_latest
     name: pod-container-2
     imagePullPolicy: Always
@@ -31,4 +31,4 @@ spec:
     lifecycle:
       postStart:
         exec:
-          command: "/opt/datastore/container/no-existed.sh"
+          command: ["/opt/datastore/container/no-existed.sh"]

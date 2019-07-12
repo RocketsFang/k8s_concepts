@@ -36,7 +36,7 @@ spec:
 #    lifecycle:
 #      postStart:
 #        exec:
-#          command: "/opt/datastore/container/no-existed.sh"
+#          command: ["/opt/datastore/container/no-existed.sh"]
     ports:
     - containerPort: 8888
 #      hostPort: 8888
