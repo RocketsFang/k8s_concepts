@@ -32,5 +32,6 @@ spec:
 #      sizeLimit: 2Mi
 # or use the host machine
   - name: pod-volume
-    type: DirectoryOrCreate
-    path: /home/docker/lifecycle-hook-log/
+    hostPath:
+      type: DirectoryOrCreate
+      path: /home/docker/lifecycle-hook-log/
