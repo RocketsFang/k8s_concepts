@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: successed
+  name: pod-successed
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-successed-demo
-  namespace: successed
+  name: pod-successed
+  namespace: pod-successed
 spec:
   containers:
   - image: rocketsfang/k8s_concepts:db_latest
