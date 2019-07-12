@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pod
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-demo
+  namespace: pod
+  labels:
+    app: nodejsapp
+spec:
+  containers:
+  - image: rocketsfang/k8s_concepts:embeded_db_latest
+    name: pod-container
+    imagePullPolicy: IfNotPresent
+    securityContext:
+      privileged: false
+#      capabilities:  date 060606002016.00   chown nobody text
+#        add: ["CHOWN", "SYS_TIME"]
+#        drop: ["ALL"]
+    ports:
+    - containerPort: 8888
+# if specified, must match the container ports, mostly it's not set
+#   hostPort: 8888
+
+# more demos in po-array.yaml
