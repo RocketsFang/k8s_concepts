@@ -26,7 +26,10 @@ spec:
   - image: rocketsfang/k8s_concepts:nodejs_latest
     name: pod-nodejs
     securityContext:
-      privileged: true
+      privileged: false
+#      capabilities:  date 060606002016.00   chown nobody text
+#        add: ["CHOWN", "SYS_TIME"]
+#        drop: ["ALL"]
     imagePullPolicy: Always
     ports:
     - containerPort: 8888
