@@ -16,7 +16,7 @@ RUN apt-get update \
     && apt-get install -y curl vim net-tools telnet iputils-ping
     
 RUN mkdir -p ${DB_WORKDIR}/data/ \
-    && ${DB_WORKDIR}/container/ \
+    && mkdir -p ${DB_WORKDIR}/container/ \
     && touch ${DB_FILE} \
     && mkdir -p ${NODEJS_WORKDIR}/server
 
