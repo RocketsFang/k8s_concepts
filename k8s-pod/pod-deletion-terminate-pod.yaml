@@ -26,11 +26,11 @@ spec:
     - name: pod-volume
       mountPath: /opt/datastore/data/
   volumes:
-  - name: pod-volume
-    emptyDir:
-      medium: Memory
-      sizeLimit: 2Mi
-# or use the host machine
 #  - name: pod-volume
-#    type: DirectoryOrCreate
-#    path: /home/docker/hostpath/
+#    emptyDir:
+#      medium: Memory
+#      sizeLimit: 2Mi
+# or use the host machine
+  - name: pod-volume
+    type: DirectoryOrCreate
+    path: /home/docker/lifecycle-hook-log/
