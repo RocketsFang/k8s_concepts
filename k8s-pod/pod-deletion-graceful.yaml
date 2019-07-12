@@ -19,7 +19,7 @@ spec:
       postStart:
         exec:
           command:
-          - []
+          - [""]
       preStop:
         exec:
           command:
