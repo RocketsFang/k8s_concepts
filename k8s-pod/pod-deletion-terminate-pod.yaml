@@ -22,3 +22,15 @@ spec:
       preStop:
         exec:
           command: ["/opt/datastore/container/preStop.sh"]
+    volumeMounts:
+    - name: pod-volume
+      mountPath: /opt/datastore/data/
+  volumes:
+  - name: pod-volume
+    emptyDir:
+      medium: Memory
+      sizeLimit: 2Mi
+# or use the host machine
+#  - name: pod-volume
+#    type: DirectoryOrCreate
+#    path: /home/docker/hostpath/
