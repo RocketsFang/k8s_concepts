@@ -10,6 +10,7 @@ metadata:
   namespace: pod-pending
 spec:
   containers:
+# at lest one image is not ready
   - image: rocketsfang/k8s_concepts/non-exist
     name: pod-container-1
     imagePullPolicy: Always
