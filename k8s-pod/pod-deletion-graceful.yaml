@@ -19,8 +19,8 @@ spec:
       postStart:
         exec:
           command:
-          - [""]
+          - ["/opt/datastore/container/postStart.sh"]
       preStop:
         exec:
           command:
-          - []
+          - ["/opt/datastore/container/preStop.sh"]
