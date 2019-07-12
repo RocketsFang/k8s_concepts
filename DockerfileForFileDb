@@ -17,7 +17,7 @@ RUN mkdir -p ${DB_WORKDIR}/data/ \
     && touch ${DB_FILE}
 
 ADD ./k8s_concepts_db/generatedata.sh  ${DB_WORKDIR}/
-ADD ./k8s_concepts_db/container/preStart.sh  ${DB_WORKDIR}/container/preStart.sh
+ADD ./k8s_concepts_db/container/postStart.sh  ${DB_WORKDIR}/container/postStart.sh
 ADD ./k8s_concepts_db/container/preStop.sh   ${DB_WORKDIR}/container/preStop.sh
 
 WORKDIR ${DB_WORKDIR}
