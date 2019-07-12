@@ -10,6 +10,7 @@ metadata:
   namespace: pod-running
 spec:
   restartPolicy: Never
+  terminationGracePeriodSeconds: 10
   containers:
   - image: rocketsfang/k8s_concepts:db_latest
     name: pod-container-1
