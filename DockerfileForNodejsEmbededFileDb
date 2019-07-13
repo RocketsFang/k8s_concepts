@@ -17,6 +17,7 @@ RUN apt-get update \
     
 RUN mkdir -p ${DB_WORKDIR}/data/ \
     && mkdir -p ${DB_WORKDIR}/container/ \
+    && mkdir -p ${DB_WORKDIR}/probes/ \
     && touch ${DB_FILE} \
     && mkdir -p ${NODEJS_WORKDIR}/server
 
@@ -24,6 +25,8 @@ ADD ./k8s_concepts_nodejs/main/server.js ${NODEJS_WORKDIR}/server
 ADD ./k8s_concepts_db/generatedata.sh  ${DB_WORKDIR}/
 ADD ./k8s_concepts_db/container/postStart.sh  ${DB_WORKDIR}/container/postStart.sh
 ADD ./k8s_concepts_db/container/preStop.sh   ${DB_WORKDIR}/container/preStop.sh
+ADD ./k8s_concepts_db/probes/livenessprobe.file   ${DB_WORKDIR}/probes/livenessprobe.file
+ADD ./k8s_concepts_db/probes/readinessprobe.file   ${DB_WORKDIR}/probes/readinessprobe.file
 
 WORKDIR ${DB_WORKDIR}
 

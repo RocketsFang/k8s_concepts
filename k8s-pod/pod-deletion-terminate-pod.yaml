@@ -9,6 +9,7 @@ metadata:
   name: pod-deletion
   namespace: pod-deletion
 spec:
+  terminationGracePeriodSeconds: 40
   containers:
   - image: rocketsfang/k8s_concepts:embeded_db_latest
     name: pod-container
