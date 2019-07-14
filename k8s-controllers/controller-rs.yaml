@@ -15,6 +15,10 @@ spec:
   selector:
     matchLabels:
       app: nodejsapp
+    matchExpressions:
+      - {key: app, operator: In, values: [nodejsapp]}
+      - {key: app, operator: NotIn, values: [nodejsapp-v1]}
+      - {key: app}
   template:
     metadata:
       labels:
