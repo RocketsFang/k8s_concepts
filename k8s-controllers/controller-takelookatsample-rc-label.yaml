@@ -13,6 +13,8 @@ metadata:
 spec:
   replicas: 3
   selector:
+# the label order should be exactly match pod label
+# the differenct order
     app: nodejsapp
     app: nodejsapp-stage
   template:
