@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: rc_label
+  name: rc-label
 ---
 apiVersion: v1
 kind: ReplicationController
 metadata:
   name: rc-nodejsapp
-  namespace: rc_label
+  namespace: rc-label
   labels:
     rc: rc-nodejsapp
 spec:
