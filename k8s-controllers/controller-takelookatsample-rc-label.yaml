@@ -17,13 +17,11 @@ spec:
 # 1, the differenct order
 # 2, if no label matched, cannot create rc
     app: nodejsapp
-    app: nodejsapp-stage
   template:
     metadata:
       name: nodejsapp
       labels:
         app: nodejsapp
-        app: nodejsapp-stage
     spec:
       containers:
       - name: nodejsapp

@@ -14,14 +14,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nodejsapp-stage
       app: nodejsapp
+    matchExpressions:
+      - { key: app, operator: In, values:[nodejsapp]}
+      - { key: app, operator: Exists}
   template:
     metadata:
       labels:
         app: nodejsapp
-        app: nodejsapp-stage
-        app: nodejsapp-stage-v1
     spec:
       containers:
       - name: nodejsapp
