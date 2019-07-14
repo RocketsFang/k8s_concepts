@@ -11,8 +11,30 @@ metadata:
   namespace: pod-readinessprobe
 spec:
   containers:
-  - image: rocketsfang/k8s_concepts:embeded_db_latest
+  - image: rocketsfang/k8s_concepts:db_latest
     name: pod-container-1
+    imagePullPolicy: Always
+    ports:
+    - containerPort: 8888
+# no port available will cause container schedule failed
+#      hostPort: 8888
+# using executing command to probe container
+    livenessProbe:
+      exec:
+        command: ["ls -l /opt/datastore/probes/livenessprobe.file"]
+      initialDelaySeconds: 5
+      periodSeconds: 3
+      failureThreshold: 2
+      timeoutSeconds: 2
+    readinessProbe:
+      exec:
+        command: ["ls -l /opt/datastore/probes/readinessprobe.file"]
+      initialDelaySeconds: 5
+      periodSeconds: 3
+      failureThreshold: 2
+      timeoutSeconds: 2
+  - image: rocketsfang/k8s_concepts:nodejs_latest
+    name: pod-container-2
     imagePullPolicy: Always
     ports:
     - containerPort: 8888
@@ -30,18 +52,3 @@ spec:
         port: 8889
       initialDelaySeconds: 20
       timeoutSeconds: 1
-# using executing command to probe container
-#    livenessProbe:
-#      exec:
-#        command: ["ls -l /opt/datastore/probes/livenessprobe.file"]
-#      initialDelaySeconds: 5
-#      periodSeconds: 3
-#      failureThreshold: 2
-#      timeoutSeconds: 2
-#    livenessProbe:
-#      exec:
-#        command: ["ls -l /opt/datastore/probes/livenessprobe.file"]
-#      initialDelaySeconds: 5
-#      periodSeconds: 3
-#      failureThreshold: 2
-#      timeoutSeconds: 2
