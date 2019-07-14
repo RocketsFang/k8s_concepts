@@ -23,5 +23,5 @@ spec:
       periodSeconds: 3
       failureThreshold: 2
       timeoutSeconds: 2
-    restartPolicy: Never
+  restartPolicy: Never
     
