@@ -19,8 +19,8 @@ spec:
     metadata:
       name: nodejsapp
       labels:
-        app: nodejsapp-stage
         app: nodejsapp
+        app: nodejsapp-stage
     spec:
       containers:
       - name: nodejsapp
