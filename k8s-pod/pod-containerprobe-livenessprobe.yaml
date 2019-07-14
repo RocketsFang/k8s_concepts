@@ -16,7 +16,8 @@ spec:
     imagePullPolicy: Always
     ports:
     - containerPort: 8888
-      hostPort: 8888
+# no port available will cause container schedule failed
+#      hostPort: 8888
     livenessProbe:
       httpGet:
         path: /
