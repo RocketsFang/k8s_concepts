@@ -1,5 +1,3 @@
-#### kubectl label pod xxxx app=ndejsapp-debug --overwrite
-
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -9,8 +7,6 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   name: rc-nodejsapp
-## create new controller to take charge of the pods created previously
-##  name: rc-nodejsapp_new
   namespace: rc-isolate
 spec:
   replicas: 2
@@ -19,6 +15,8 @@ spec:
   template:
     metadata:
       name: nodejsapp
+#### kubectl label pod xxxx app=ndejsapp-debug --overwrite
+# change the pod label
       labels:
         app: ndejsapp
     spec:
