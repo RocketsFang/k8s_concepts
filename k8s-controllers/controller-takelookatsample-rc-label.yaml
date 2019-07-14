@@ -18,7 +18,7 @@ spec:
   template:
     metadata:
       name: nodejsapp
-      label:
+      labels:
         app: nodejsapp-stage
         app: nodejsapp
     spec:
