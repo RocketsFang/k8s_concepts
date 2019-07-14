@@ -14,12 +14,12 @@ spec:
   replicas: 3
   selector:
     app: nodejsapp
-    app: nodejsapp_stage
+    app: nodejsapp-stage
   template:
     metadata:
       name: nodejsapp
       label:
-        app: nodejsapp_stage
+        app: nodejsapp-stage
         app: nodejsapp
     spec:
       containers:
