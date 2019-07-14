@@ -6,22 +6,21 @@ metadata:
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: rc-nodejsapp_1
+  name: rc-nodejsapp
   namespace: rc_label
   labels:
-    rc: rc-nodejsapp_1
+    rc: rc-nodejsapp
 spec:
   replicas: 3
   selector:
     app: nodejsapp
+    app: nodejsapp_stage
   template:
     metadata:
       name: nodejsapp
       label:
-        app: nodejsapp_1
-##  for label created by another RC, what will happens
-##      labels:
-##       app: nodejsapp
+        app: nodejsapp_stage
+        app: nodejsapp
     spec:
       containers:
       - name: nodejsapp
