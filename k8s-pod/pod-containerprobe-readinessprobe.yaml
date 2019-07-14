@@ -30,4 +30,18 @@ spec:
         port: 8889
       initialDelaySeconds: 20
       timeoutSeconds: 1
-    
+# using executing command to probe container
+#    livenessProbe:
+#      exec:
+#        command: ["ls -l /opt/datastore/probes/livenessprobe.file"]
+#      initialDelaySeconds: 5
+#      periodSeconds: 3
+#      failureThreshold: 2
+#      timeoutSeconds: 2
+#    livenessProbe:
+#      exec:
+#        command: ["ls -l /opt/datastore/probes/livenessprobe.file"]
+#      initialDelaySeconds: 5
+#      periodSeconds: 3
+#      failureThreshold: 2
+#      timeoutSeconds: 2
