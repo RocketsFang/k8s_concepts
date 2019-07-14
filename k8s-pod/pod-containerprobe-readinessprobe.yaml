@@ -21,14 +21,14 @@ spec:
 # using executing command to probe container
     livenessProbe:
       exec:
-        command: ["ls -l /opt/datastore/probes/livenessprobe.file"]
+        command: ["/bin/bash", "-c", "ls -l /opt/datastore/probes/livenessprobe.file"]
       initialDelaySeconds: 5
       periodSeconds: 3
       failureThreshold: 2
       timeoutSeconds: 2
     readinessProbe:
       exec:
-        command: ["ls -l /opt/datastore/probes/readinessprobe.file"]
+        command: ["/bin/bash", "-c", "ls -l /opt/datastore/probes/readinessprobe.file"]
       initialDelaySeconds: 5
       periodSeconds: 3
       failureThreshold: 2
@@ -47,8 +47,9 @@ spec:
       initialDelaySeconds: 15
       timeoutSeconds: 1
     readinessProbe:
-      httpGet:
-        path: /
-        port: 8889
-      initialDelaySeconds: 20
-      timeoutSeconds: 1
+      exec:
+        command: ["/bin/bash", "-c", "ls -l /opt/datastore/probes/readinessprobe.file"]
+      initialDelaySeconds: 5
+      periodSeconds: 3
+      failureThreshold: 2
+      timeoutSeconds: 2

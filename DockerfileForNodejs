@@ -3,6 +3,7 @@
 FROM ubuntu:16.04
 
 ARG NODEJS_WORKDIR=/opt/k8s_concepts_nodejs
+ARG DB_WORKDIR=/opt/datastore
 ENV DB_FILE /opt/datastore/data/dbfile
 
 RUN rm /var/lib/dpkg/lock \
@@ -13,9 +14,15 @@ RUN apt-get update \
     && apt-get install -y npm \
     && apt-get install -y curl vim net-tools telnet iputils-ping
 
-RUN mkdir -p ${NODEJS_WORKDIR}/server
+RUN mkdir -p ${NODEJS_WORKDIR}/server \
+    && mkdir -p ${DB_WORKDIR}/container/ \
+    && mkdir -p ${DB_WORKDIR}/probes/
 
 ADD ./k8s_concepts_nodejs/main/server.js ${NODEJS_WORKDIR}/server
+ADD ./k8s_concepts_db/container/postStart.sh  ${DB_WORKDIR}/container/postStart.sh
+ADD ./k8s_concepts_db/container/preStop.sh   ${DB_WORKDIR}/container/preStop.sh
+ADD ./k8s_concepts_db/probes/livenessprobe.file   ${DB_WORKDIR}/probes/livenessprobe.file
+ADD ./k8s_concepts_db/probes/readinessprobe.file   ${DB_WORKDIR}/probes/readinessprobe.file
 
 WORKDIR ${NODEJS_WORKDIR}
 

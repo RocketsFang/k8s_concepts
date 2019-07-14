@@ -18,7 +18,7 @@ spec:
     - containerPort: 8888
     livenessProbe:
       exec:
-        command: ["ls -l /opt/datastore/probes/livenessprobe.file"]
+        command: ["/bin/bash", "-c", "ls -l /opt/datastore/probes/livenessprobe.file"]
       initialDelaySeconds: 5
       periodSeconds: 3
       failureThreshold: 2
