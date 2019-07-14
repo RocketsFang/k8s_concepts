@@ -18,7 +18,7 @@ spec:
 #### kubectl label pod xxxx app=ndejsapp-debug --overwrite
 # change the pod label
       labels:
-        app: ndejsapp
+        app: nodejsapp
     spec:
       containers:
       - name: nodejsapp

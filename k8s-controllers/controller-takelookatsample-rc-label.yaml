@@ -14,7 +14,8 @@ spec:
   replicas: 3
   selector:
 # the label order should be exactly match pod label
-# the differenct order
+# 1, the differenct order
+# 2, if no label matched, cannot create rc
     app: nodejsapp
     app: nodejsapp-stage
   template:
