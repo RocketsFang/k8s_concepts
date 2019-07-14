@@ -16,12 +16,12 @@ spec:
     imagePullPolicy: Always
     ports:
     - containerPort: 8888
-# no port available will cause container schedule failed
-#      hostPort: 8888
     livenessProbe:
-      httpGet:
-        path: /
-        port: 8889
-      initialDelaySeconds: 15
-      timeoutSeconds: 1
+      exec:
+        command: ["ls -l /opt/datastore/probes/livenessprobe.file"]
+      initialDelaySeconds: 5
+      periodSeconds: 3
+      failureThreshold: 2
+      timeoutSeconds: 2
+    restartPolicy: Never
     
