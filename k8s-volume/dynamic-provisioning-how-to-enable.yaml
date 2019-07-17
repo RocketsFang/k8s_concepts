@@ -26,7 +26,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: dynamic-claim
   namespace: dynamic-provisioning
-spce:
+spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: fast
