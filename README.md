@@ -1,5 +1,5 @@
 
-mermaid```
+```mermaid
 gantt         
        dateFormat  YYYY-MM-DD   
        title 使用mermaid语言定制甘特图
