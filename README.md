@@ -1,5 +1,5 @@
 
-```
+```mermaid
 gantt        
        dateFormat  YYYY-MM-DD   
        title Using mermaid gantt
